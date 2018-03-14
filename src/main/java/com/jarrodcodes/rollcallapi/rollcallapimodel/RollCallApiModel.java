@@ -10,33 +10,33 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
-	@Entity
-	@Table(name = "checkins")
-	@EntityListeners(AuditingEntityListener.class)
-	@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
-	        allowGetters = true)
-	
-	public class RollCallApiModel implements Serializable {
+@Entity
+@Table(name = "checkins")
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
+	allowGetters = true)
 
-	    @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
+public class RollCallApiModel implements Serializable {
 
-	    @NotBlank
-	    private String title;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	    @NotBlank
-	    private String content;
+    @NotBlank
+    private String title;
 
-	    @Column(nullable = false, updatable = false)
-	    @Temporal(TemporalType.TIMESTAMP)
-	    @CreatedDate
-	    private Date createdAt;
+    @NotBlank
+    private String content;
 
-	    @Column(nullable = false)
-	    @Temporal(TemporalType.TIMESTAMP)
-	    @LastModifiedDate
-	    private Date updatedAt;
+    @Column(nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreatedDate
+    private Date createdAt;
 
-	    // Getters and Setters ... (Omitted for brevity)
-	}
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @LastModifiedDate
+    private Date updatedAt;
+
+    // Getters and Setters ... (Omitted for brevity)
+}
